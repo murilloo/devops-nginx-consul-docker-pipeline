@@ -1,0 +1,7 @@
+- hosts: all
+  become: yes
+  tasks:
+    - import_tasks: "tasks/nginx.yml"
+    - import_tasks: "tasks/consul.yml"
+    - import_tasks: "tasks/consul-template.yml"
+    - import_tasks: "tasks/docker.yml"
