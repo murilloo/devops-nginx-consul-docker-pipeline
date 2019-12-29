@@ -8,3 +8,8 @@
     src: /tmp/consul_1.6.2_linux_amd64.zip
     dest: /usr/local/bin
     remote_src: yes
+    
+- name: remove temporary consul installation
+  file:
+    path:  /tmp/consul_1.6.2_linux_amd64.zip
+    state: absent
