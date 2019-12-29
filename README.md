@@ -1,5 +1,5 @@
 # devops-vagrant-pipeline
-Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx as web server, Consul as Service Discovery, Consul-Template to update Nginx configuration accordingly with events fired by Registrator running over Docker
+Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx as web server, Consul as Service Discovery, Consul-Template to update Nginx configuration accordingly with registered containers sent by Registrator. All running over Docker
 
 ## Requirements
 - Vangrant >= 2.2.5
