@@ -8,8 +8,50 @@
     src: /tmp/consul-template_0.23.0_linux_amd64.zip
     dest: /usr/local/bin
     remote_src: yes
-
+    
 - name: remove temporary consul-template installation
   file:
     path:  /tmp/consul-template_0.23.0_linux_amd64.zip
     state: absent
+
+- name: configuring consul-template service
+  copy:
+    src: ./templates/consul.service.j2
+    dest: /etc/systemd/system/consul.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: ensure consul-template conf folder exists
+  file:
+    path: "/etc/consul-template.d"
+    state: directory
+    recurse: yes
+    owner: root
+    group: root
+
+- name: adding consul-template config
+  copy:
+    src: ./files/template.json
+    dest: /etc/consul-template.d
+    owner: root
+    group: root
+    mode: 0644
+
+- name: adding nginx template config
+  copy:
+    src: ./files/services.conf
+    dest: /etc/consul-template.d
+    owner: root
+    group: root
+    mode: 0644
+
+- name: ensure systemd daemon was reloaded
+  systemd:
+    daemon_reload: yes
+
+- name: ensure consul-template is restarted
+  systemd:
+    name: consul-template
+    state: restarted
+    enabled: yes
