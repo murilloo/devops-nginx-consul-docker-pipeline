@@ -8,3 +8,13 @@ Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx 
 ## Goals
 - To provide an API Gateway in a single server with basic capabilities
 - To dinamically provide Nginx HTTP/HTTPS ingress mechanisms for frontend and backend applications running over Docker with Consul as Service Discovery
+- For this demo there will a Redis and an Apache container available through Nginx as proxy
+
+## Running
+```
+$ vagrant up --provider=libvirt
+$ vagrant ssh centos (to connect to the VM provisioned)
+$ curl http://localhost/httpd (it works!)
+$ curl http://localhost/redis (For testing the route only)
+$ packer build container.json
+```

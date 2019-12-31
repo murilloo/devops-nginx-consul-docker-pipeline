@@ -1,3 +1,9 @@
+- name: set httpd_can_network_connect flag
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+
 - name: redis container
   docker_container:
     name: redis
@@ -9,8 +15,8 @@
 
 - name: apache httpd
   docker_container:
-        name: httpd
-        image: docker.io/httpd
-        state: started
-        ports:
-          - 80
+    name: httpd
+    image: docker.io/httpd
+    state: started
+    ports:
+      - 80
