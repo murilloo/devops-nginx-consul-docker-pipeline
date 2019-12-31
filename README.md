@@ -16,5 +16,4 @@ $ vagrant up --provider=libvirt
 $ vagrant ssh centos (to connect to the VM provisioned)
 $ curl http://localhost/httpd (it works!)
 $ curl http://localhost/redis (For testing the route only)
-$ packer build container.json
 ```
