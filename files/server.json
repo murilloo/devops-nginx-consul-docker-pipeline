@@ -1,0 +1,11 @@
+{
+  "acl_datacenter": "dev1",
+  "server": true,
+  "datacenter": "dev1",
+  "data_dir": "/opt/data/consul",
+  "disable_anonymous_signature": true,
+  "disable_remote_exec": true,
+  "encrypt": "{{ consul_key }}",
+  "log_level": "DEBUG",
+  "enable_syslog": true
+}
