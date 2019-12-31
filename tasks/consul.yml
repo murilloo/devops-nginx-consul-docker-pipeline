@@ -15,8 +15,8 @@
     state: absent
     
 - name: configuring consul service
-  copy:
-    src: ./tempaltes/consul.service.j2
+  template:
+    src: ./templates/consul.service.j2
     dest: /etc/systemd/system/consul.service
     owner: root
     group: root
@@ -29,6 +29,7 @@
     recurse: yes
     owner: root
     group: root
+    remote_src: yes
 
 - name: ensure consul conf folder exists
   file:
@@ -37,10 +38,11 @@
     recurse: yes
     owner: root
     group: root
-
+    remote_src: yes
+    
 - name: adding consul server config
-  copy:
-    src: ./files/server.json
+  template:
+    src: ./templates/server.json.j2
     dest: /etc/consul.d/server.json
     owner: root
     group: root

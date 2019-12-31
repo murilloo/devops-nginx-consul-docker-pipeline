@@ -1,4 +1,4 @@
-- name: install basics packages
+- name: install rpm basic packages
   yum:
     name:
       - epel-release
@@ -11,3 +11,9 @@
     name:
       - nginx
     state: latest
+
+- name: make sure nginx is enabled/started
+  systemd:
+    state: started
+    name: nginx
+    enabled: yes
