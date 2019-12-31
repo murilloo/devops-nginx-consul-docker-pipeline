@@ -8,7 +8,7 @@ Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx 
 ## Goals
 - To provide an API Gateway in a single server with basic capabilities
 - To dinamically provide Nginx HTTP/HTTPS ingress mechanisms for frontend and backend applications running over Docker with Consul as Service Discovery
-- For this demo there will a Redis and an Apache container available through Nginx as proxy
+- For this demo there will be a Redis and an Apache instance running on Docker and available through Nginx
 
 ## Running
 ```
