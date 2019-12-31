@@ -1,20 +1,13 @@
-- name: checking if consul is already installed
-  stat:
-    path: '/usr/local/bin/consul'
-  register: consul_installed
-
 - name: download consul
   get_url:
     url: https://releases.hashicorp.com/consul/1.6.2/consul_1.6.2_linux_amd64.zip
     dest: /tmp/consul_1.6.2_linux_amd64.zip
-  when: consul_installed.stat.exists != true
   
 - name: extract consul
   unarchive:
     src: /tmp/consul_1.6.2_linux_amd64.zip
     dest: /usr/local/bin
     remote_src: yes
-  when: consul_installed.stat.exists != true
     
 - name: remove temporary consul installation
   file:
@@ -47,7 +40,7 @@
 
 - name: adding consul server config
   copy:
-    src: ./files/consul.d/server.json
+    src: ./files/server.json
     dest: /etc/consul.d/server.json
     owner: root
     group: root
