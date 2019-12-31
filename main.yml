@@ -1,0 +1,11 @@
+- hosts: all
+  vars_files:
+   - secrets/secrets.yml
+  become: yes
+  tasks:
+    - import_tasks: "tasks/nginx.yml"
+    - import_tasks: "tasks/consul.yml"
+    - import_tasks: "tasks/consul-template.yml"
+    - import_tasks: "tasks/docker.yml"
+    - import_tasks: "tasks/registrator.yml"
+    - import_tasks: "tasks/deploy.yml"

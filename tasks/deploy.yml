@@ -1,0 +1,16 @@
+- name: redis container
+  docker_container:
+    name: redis
+    image: docker.io/redis
+    state: started
+    recreate: yes
+    ports:
+      - 6379
+
+- name: apache httpd
+  docker_container:
+        name: httpd
+        image: docker.io/httpd
+        state: started
+        ports:
+          - 80

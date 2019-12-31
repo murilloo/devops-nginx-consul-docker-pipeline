@@ -1,0 +1,10 @@
+{
+"template": [
+        {
+            "command": "/usr/sbin/nginx -s reload",
+            "destination": "/etc/nginx/nginx.conf",
+            "perms": "0644",
+            "source": "/etc/consul-template.d/services.conf"
+        }
+    ]
+}

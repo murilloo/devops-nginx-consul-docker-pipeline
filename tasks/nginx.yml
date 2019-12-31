@@ -1,0 +1,19 @@
+- name: install rpm basic packages
+  yum:
+    name:
+      - epel-release
+      - unzip
+      - ansible
+    state: latest
+
+- name: install nginx
+  yum:
+    name:
+      - nginx
+    state: latest
+
+- name: make sure nginx is enabled/started
+  systemd:
+    state: started
+    name: nginx
+    enabled: yes
