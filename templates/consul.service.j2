@@ -1,0 +1,18 @@
+[Unit]
+Description=Consul service discovery agent
+Requires=network-online.target
+After=network.target
+
+[Service]
+User=root
+Group=root
+PIDFile=/run/consul/consul.pid
+Restart=on-failure
+Environment=
+ExecStart=/usr/local/bin/consul agent -server -bootstrap -config-dir=/etc/consul.d -bind={{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGINT
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
