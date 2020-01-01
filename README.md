@@ -15,6 +15,9 @@ Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx 
 ```
 $ vagrant up --provider=libvirt
 $ vagrant ssh centos (to connect to the VM provisioned)
-$ curl http://localhost/httpd (it works!)
-$ curl http://localhost/redis (For testing the route only)
+$ docker ps (check the container ports)
+$ curl http://localhost/httpd
+$ curl http://localhost/redis
+$ docker restart redis httpd
+$ docker ps (check the container ports)
 ```
