@@ -2,8 +2,8 @@
 Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx as web server, Consul as Service Discovery, Consul-Template to update Nginx configuration accordingly with registered containers sent by Registrator. All running over Docker
 
 ## Requirements
-- Vangrant >= 2.2.5
-- Libvirt >= 5.1.0
+- Vagrant >= 2.2.5 (https://www.vagrantup.com/downloads.html)
+- Libvirt >= 5.1.0 (https://libvirt.org/sources/)
 
 ## Goals
 - To provide an API Gateway in a single server with basic capabilities
