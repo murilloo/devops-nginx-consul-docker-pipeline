@@ -4,6 +4,8 @@ Example pipeline using Vagrant to provision a VM and Ansible to configure Nignx 
 ## Requirements
 - Vagrant >= 2.2.5 (https://www.vagrantup.com/downloads.html)
 - Libvirt >= 5.1.0 (https://libvirt.org/sources/)
+- Python version = 3.7.5
+- Ansible = 2.9.2
 
 ## Goals
 - To provide an API Gateway in a single server with basic capabilities
